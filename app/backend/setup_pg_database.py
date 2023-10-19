@@ -8,18 +8,12 @@ engine = create_engine(url=config.database.dsn)
 
 sql_script_path = "app/backend/sql_scripts/setup_pg_db.sql"
 
-# with open(f"{sql_script_path}") as f:
-#     with engine.connect() as connection:
-#         setup_database_query: str = "".join(f.readlines())
-#         connection.execute(setup_database_query)
-
-
 # Read SQL statements from the file
-with open(sql_script_path, 'r') as sql_file:
+with open(sql_script_path, "r") as sql_file:
     sql_statements = sql_file.read()
 
 # Split the SQL statements into individual statements
-statements = sql_statements.split(';')
+statements = sql_statements.split(";")
 
 # Execute each SQL statement
 with engine.connect() as connection:
