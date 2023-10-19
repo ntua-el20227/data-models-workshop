@@ -76,8 +76,6 @@ unit:
 	coverage xml
 	make clear
 
-
-
 ## linting checks and then run tests
 tests: check build-image
 	make unit
