@@ -4,7 +4,7 @@ pydantic==2.4.2
 pydantic_core==2.10.1
 pydantic-settings==2.0.3
 psycopg2-binary==2.9.9
-SQLAlchemy==2.0.22
+SQLAlchemy==1.4.46
 typing_extensions==4.8.0
 isort==5.11.2
 black==23.1a1

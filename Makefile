@@ -52,7 +52,6 @@ create-dev:
 	docker compose -f docker-compose.yaml up -d --wait
 
 	echo "Initializing pg database"
-	sleep 5
 	python app/backend/setup_pg_database.py
 
 ## tear down environment
