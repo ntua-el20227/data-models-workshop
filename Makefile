@@ -62,11 +62,11 @@ teardown-dev:
 	echo "Clearing caches"
 	make clear
 ## run integration tests
-integration-tests:
+integration:
 	make create-dev
 
 	echo "Running integration tests"
-	pytest -v -s tests/integration --no-header -vv --alluredir=allure_results || (make integration-teardown && exit 1)
+	pytest -v -s tests/integration --no-header -vv || (make integration-teardown && exit 1)
 	make teardown-dev
 
 ## run unit tests
