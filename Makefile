@@ -72,7 +72,7 @@ integration:
 ## run unit tests
 unit:
 	make clear
-	pytest -v -s tests/unit --no-header -vv --cov=dags --cov-report=term-missing
+	pytest -v -s tests/unit --no-header -vv --cov=app --cov-report=term-missing
 	coverage xml
 	make clear
 

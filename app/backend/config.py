@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from pydantic_settings import BaseSettings
 
 # Get the value of an environment variable
-config = dotenv_values("variables.env")
+config = dotenv_values(".env.variables")
 pg_user = config["POSTGRES_USER"]
 pg_password = config["POSTGRES_PASSWORD"]
 pg_db = config["POSTGRES_DB"]
