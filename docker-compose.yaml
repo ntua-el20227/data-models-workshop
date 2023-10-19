@@ -4,10 +4,8 @@ services:
   postgres:
     image: postgres:15.3
     container_name: my_postgres_container
-    environment:
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
-      POSTGRES_DB: mydatabase
+    env_file:
+      - variables.env
     ports:
       - "5432:5432"
     healthcheck:
