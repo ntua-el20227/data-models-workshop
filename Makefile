@@ -72,7 +72,7 @@ integration:
 ## run unit tests
 unit:
 	make clear
-	pytest -v -s tests/unit --no-header -vv
+	pytest -v -s tests/unit --no-header -vv --cov=app --cov-report=term-missing
 	coverage xml
 	make clear
 
@@ -81,7 +81,7 @@ unit:
 ## linting checks and then run tests
 tests: check build-image
 	make unit
-	make integration-tests
+	make integration
 
 
 #################################################################################
