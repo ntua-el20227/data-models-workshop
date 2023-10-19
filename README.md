@@ -106,9 +106,9 @@ Part of the automated tests. If you need to test manually, it is as easy as exec
 or specifically
 
 ```bash
-  make integration-environment
+  make create-dev
   pytest -v -s tests/integration --no-header -vv || (make teardown && exit 1)
-  make integration-teardown
+  make teardown-dev
 ```
 
 The integration tests need a running environment consisting of:
@@ -134,7 +134,7 @@ Here we run manually the steps leading to the integration tests. This can be use
 To create a local environment with prepopulated test data you can run:
 
 ```bash
-  make integration-environment
+  make create-dev
 ```
 
 You can find 
