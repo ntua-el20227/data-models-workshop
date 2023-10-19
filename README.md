@@ -164,28 +164,34 @@ The CI pipeline is configured in the [GitHub actions](.github/workflows/ci.yml) 
 ## Code Structure
 ```
 .
-├── .github                     # Directory for GitHub actions
-│   └── workflows               # Directory for GitHub actions workflows
-├── ci_scripts                  # Directory where any scripts that your CI/CD might need to access
-├── dags                        # Directory where all your DAGs go
-│   ├── dagfactory              # Directory for dynamically generating DAGs
-│   ├── models                  # Directory for ORM models
-│   ├── operators               # Directory for custom Airflow operators
-│   └── discover_dags.py        # Directory for dynamically generating DAGs from yaml files
-├── plugins                     # Directory for any custom or community Airflow plugins
-│   └── example-plugin.py              
-├── tests                       # Directory for all tests
-│   ├── unit                    # Directory for unit tests
-│   ├── resources               # Directory for testing resources
-│   └── integration             # Directory for integration tests
-├── .gitignore                  # File for ignoring files in git
-├── .pre-commit-config.yaml     # File for running pre-commit hooks before puss to git
-├── docker-compose-test.yaml    # File for set up Testing environment 
-├── Dockerfile-test             # File for AirFlow/python Docker image for testing
-├── Makefile                    # File for any Python packages 
-├── pyproject.toml              # File of python project configurations
-├── requirements.txt            # File for any Python packages prod 
-├── pytest.ini                  # File to add test paths
-└── setup.cfg                   # File for set up
-
+    └── app/
+        ├── backend/            # Backend functionality and configs
+        |   ├── config.py           # Configuration settings
+        │   └── session.py          # Database session manager
+        ├── models/             # SQLAlchemy models
+        │   ├── auth.py             # Authentication models
+        |   ├── base.py             # Base classes, mixins
+        |   └── ...                 # Other service models
+        ├── schemas/            # Pydantic models
+        |   ├── auth.py              
+        │   └── ...
+        ├── services/           # Business logic
+        |   ├── auth.py             # Generate and verify tokens
+        |   ├── base.py             # Base classes, mixins
+        │   └── ...
+        └── main.py             # Application runner
+    └── tests/                  # Unit and integration tests
+    ├── .gitignore              # File for ignoring files in git
+    ├── .python-version         # File for pinning python version
+    ├── docker-compose.yaml     # Docker compose file for integration testing
+    ├── Dockerfile              # Dockerfile for building the image
+    ├── pre-commit-config.yaml  # Pre-commit hooks
+    ├── pyproject.toml          # File for setting up pre-commit hooks
+    ├── setup.cfg               # Configuration for pytest
+    ├── Makefile                # Makefile for running commands
+    ├── README.md               # This file
+    └── requirements.txt        # Python dependencies
+    
+    
+        
 ```

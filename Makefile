@@ -4,6 +4,7 @@
 
 ##  install packages, install pre-commit
 install-dev:
+	pip3 install --upgrade pip
 	pip3 install -U pip wheel setuptools
 	pip3 install -r requirements.txt
 	pre-commit install
@@ -27,35 +28,35 @@ uninstall-dev:
 
 ## Run linting checks
 check:
-	isort --check dags tests 	# setup.cfg
-	black --check dags tests 		# pyproject.toml
-	flake8 dags tests	 # setup.cfg
-	mypy dags tests	 --explicit-package-bases --python-version=3.10	# setup.cfg
+	isort --check app tests 	# setup.cfg
+	black --check app tests 		# pyproject.toml
+	flake8 app tests	 # setup.cfg
+	mypy app tests	 --explicit-package-bases --python-version=3.10	# setup.cfg
 
 ## reformat the files using the formatters
 format:
-	isort dags tests
-	black dags tests
+	isort app tests
+	black app tests
 
 ## down build docker image
 drop-image:
-	docker compose -f docker-compose-test.yaml down -v --rmi all
+	docker compose -f docker-compose.yaml down -v --rmi all
 
 ## build docker image
 build-image:
-	docker compose -f docker-compose-test.yaml build
+	docker compose -f docker-compose.yaml build
 
 ## create environment (airflow container/operational events db/sql external db)
-integration-environment:
-	docker compose -f docker-compose-test.yaml up -d --wait
+create-dev:
+	docker compose -f docker-compose.yaml up -d --wait
 
 	echo "Initializing pg database"
-	python ci_scripts/setup_pg_database.py
+	python app/backend/setup_pg_database.py
 
 ## tear down environment
-integration-teardown:
+teardown-dev:
 	echo "Tearing down environment"
-	docker-compose -f docker-compose-test.yaml down -v
+	docker-compose -f docker-compose.yaml down -v
 
 	echo "Clearing caches"
 	make clear
@@ -75,27 +76,6 @@ unit:
 	make clear
 
 
-## run integrity tests
-integrity:
-	echo "Initialising integrity docker container"
-	env CONFIGS_DIR=configs docker compose -f docker-compose-test.yaml up -d --wait
-
-	echo "Running integrity tests"
-	pytest -v -s tests/integrity --no-header -vv || (make integration-teardown && exit 1)
-	make integration-teardown
-
-check-for-import-error:
-	echo "Initialising docker container"
-	env CONFIGS_DIR=tests/resources/tmp_configs docker compose -f docker-compose-test.yaml up -d --wait
-
-	echo "Running find import error tests"
-	python ./scripts/find_import_errors.py
-
-	echo "Deleting docker container"
-	docker compose -f docker-compose-test.yaml down -v
-
-	echo "Clearing caches"
-	make clear
 
 ## linting checks and then run tests
 tests: check build-image

@@ -6,7 +6,7 @@ repos:
     rev: '5.12.0'
     hooks:
     -   id: isort
-        entry: isort --diff --check dags tests
+        entry: isort --diff --check app tests
         pass_filenames: false
         language_version: python3.10
         always_run: true
@@ -16,7 +16,7 @@ repos:
     hooks:
     - id: black
       name: black
-      entry: black --diff --check --color dags tests
+      entry: black --diff --check --color app tests
       pass_filenames: false
       language_version: python3.10
       always_run: true
@@ -25,7 +25,7 @@ repos:
     rev: '6.0.0'
     hooks:
     -   id: flake8
-        entry: flake8 dags tests
+        entry: flake8 app tests
         pass_filenames: false
         language_version: python3.10
         always_run: true
@@ -36,7 +36,7 @@ repos:
     hooks:
     -   id: mypy
         # when mypy is run from the pre-commit hook an error occurs due to missing stubs so we need these flags
-        entry: mypy --install-types --non-interactive dags tests
+        entry: mypy --install-types --non-interactive app tests
         pass_filenames: false
         language_version: python3.10
         always_run: true
