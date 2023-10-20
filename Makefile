@@ -11,7 +11,6 @@ install-dev:
 ## clear all caches
 clear:
 	rm -rf logs
-	rm -rf data
 	rm -rf localstack
 	rm -rf .mypy_cache
 	rm -rf .pytest_cache
