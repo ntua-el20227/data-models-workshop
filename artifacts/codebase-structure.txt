@@ -1,16 +1,16 @@
 .
-├── Dockerfile
-├── LICENSE.txt
-├── Makefile
-├── README.md
-├── app
-├── data
-├── docker-compose-test.yaml
-├── docker-compose.yaml
-├── pyproject.toml
-├── pytest.ini
-├── requirements.txt
-├── setup.cfg
-└── tests
+├── Dockerfile                   # Docker configuration for building a containerized application
+├── LICENSE.txt                  # The license under which the software is released
+├── Makefile                     # Contains commands to automate common development tasks
+├── README.md                    # Repository documentation with introduction, usage, etc.
+├── app                          # Main application code
+├── data                         # Directory for data-related files (potentially seed data, migrations, etc.)
+├── docker-compose-test.yaml     # Docker Compose configuration specifically for testing environment
+├── docker-compose.yaml          # Docker Compose configuration for local development and deployment
+├── pyproject.toml               # Configuration and metadata for Python projects, often used with poetry
+├── pytest.ini                   # Configuration file for pytest (testing framework)
+├── requirements.txt             # List of Python dependencies
+├── setup.cfg                    # General configuration file for Python tools and setup
+└── tests                        # Test suite for the application
 
 4 directories, 10 files
