@@ -63,11 +63,15 @@ teardown-dev:
 	make clear
 ## run integration tests
 integration:
-	make create-dev
+	docker compose -f docker-compose-test.yaml up -d --wait
 
 	echo "Running integration tests"
 	pytest -v -s tests/integration --no-header -vv || (make integration-teardown && exit 1)
-	make teardown-dev
+	echo "Tearing down environment"
+	docker-compose -f docker-compose-test.yaml down -v
+
+	echo "Clearing caches"
+	make clear
 
 ## run unit tests
 unit:
