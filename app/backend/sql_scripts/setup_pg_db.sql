@@ -7,6 +7,6 @@ CREATE TABLE IF NOT EXISTS test_schema.test_table (
 	);
 
 
-delete from test_schema.test_table;
-insert into  test_schema.test_table values (1, '1968', 2.1);
-insert into  test_schema.test_table values (2, '1969', 2.1);
+DELETE FROM test_schema.test_table;
+INSERT INTO test_schema.test_table values (1, '1968', 2.1);
+INSERT INTO test_schema.test_table values (2, '1969', 2.1);
