@@ -1,9 +1,11 @@
 import logging
+
 from config import config
 from sqlalchemy import create_engine
 
 logging.basicConfig(level=logging.INFO)
 engine = create_engine(url=config.database.dsn)
+
 
 def execute_sql_script(sql_script_path: str):
     try:
@@ -13,6 +15,7 @@ def execute_sql_script(sql_script_path: str):
         logging.info(f"Executed script {sql_script_path} successfully")
     except Exception as e:
         logging.error(f"Error executing script {sql_script_path}: {str(e)}")
+
 
 # Execute the first script
 sql_script_path1 = "app/backend/sql_scripts/setup_pg_db.sql"
