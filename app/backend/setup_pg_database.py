@@ -3,8 +3,8 @@ import logging
 from config import config
 from sqlalchemy import create_engine
 
+logging.basicConfig(level=logging.INFO)
 engine = create_engine(url=config.database.dsn)
-
 
 sql_script_path = "app/backend/sql_scripts/setup_pg_db.sql"
 
