@@ -46,10 +46,9 @@ jobs:
       - name: Prepare Integration Tests Environment
         id: setup-environment
         run: |
-          export OPERATIONAL_DB_URL="postgresql://myuser:mypassword@localhost:5432/mydatabase"
-          
+          export OPERATIONAL_DB_URL="postgresql://myuser:mypassword@localhost:5433/mydatabase"
           echo "Initializing pg database"
-          python app/backend/sql_scripts/setup_pg_db.sql
+          docker compose -f docker-compose-test.yaml up -d --wait
 
       - name: Integration Test with pytest
         id: integration-tests

@@ -80,45 +80,32 @@ Tested with python 3.10.11.
   make unit
  ```
 
-### Integrity Tests
-
-This is a special category of tests related to dag integrity. To run the integrity suite run:
-
-```bash
-  make integrity
-```
-
-This will inform about import errors. If you need to test a dag for import errors you can run:
-
-```bash
-  CONFIG="your_favourite_config.yaml,your_second_favourite_config.yaml" make check-for-import-error 
-```
-
-(the CONFIG variable is a comma separated list of config files, or a single config file)
-
 ### Integration Testing
 
 Part of the automated tests. If you need to test manually, it is as easy as executing
 ```bash
-  make integration-tests
+  make integration
 ```
 
 or specifically
 
 ```bash
-  make create-dev
-  pytest -v -s tests/integration --no-header -vv || (make teardown && exit 1)
-  make teardown-dev
+    docker compose -f docker-compose-test.yaml up -d --wait
+
+	echo "Running integration tests"
+	pytest -v -s tests/integration --no-header -vv || (make integration-teardown && exit 1)
+	echo "Tearing down environment"
+	docker-compose -f docker-compose-test.yaml down -v
+
+	echo "Clearing caches"
+	make clear
 ```
 
 The integration tests need a running environment consisting of:
 
-- A running airflow docker container
 - An operational events postgres database    
-- A S3 bucket emulated by [a docker image of localstack](https://docs.localstack.cloud/references/docker-images/)
 
-The test dag is triggered, assertions run and setup is cleaned up. These test roles are already present in [docker-compose-test.yaml](docker-compose-test.yaml)
-More information can be found here: https://newcross.atlassian.net/wiki/spaces/DET/pages/3871113257/Integration+Testing
+The test is trying to add an object in DB and retrieve it. These test roles are already present in [docker-compose-test.yaml](docker-compose-test.yaml)
 
 
 To run both unit and integration together run:
@@ -139,15 +126,10 @@ To create a local environment with prepopulated test data you can run:
 
 You can find 
 
-- the airflow ui on localhost:8080, username and password are both `airflow`.
-- the postgres database on localhost:5432, username is `postgres` and password `example`
+- the postgres database on localhost:5432, username is `myuser` and password `mypassword`
 
 (if you need things to be stateful, uncomment postgres and mssql volumes on the [docker-compose-test.yaml](docker-compose-test.yaml) file)
 
-### Run the dag
-
-Visit the [airflow server](http://localhost:8080) and activate your dag called `testing_integration_dag`. 
-Extra info in official Airflow Documentation [Airflow Apache Project](https://airflow.apache.org/).
 
 ## CI/CD
 

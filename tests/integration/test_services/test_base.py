@@ -20,8 +20,6 @@ def test_add_one_get_one_integration(session_fixture):
     assert actual.column_name_1 == 1
     assert actual.column_name_2 == "test"
     assert actual.column_name_3 == 1.0
-    session_fixture.query(TableNameModel).filter(TableNameModel.column_name_2 == "test").delete()
-    session_fixture.commit()
 
 
 def test_add_all_get_all_integration(session_fixture):
@@ -48,7 +46,3 @@ def test_add_all_get_all_integration(session_fixture):
     assert actual[1].column_name_1 == 2
     assert actual[1].column_name_2 == "integration_test2"
     assert actual[1].column_name_3 == 2.0
-    session_fixture.query(TableNameModel).filter(TableNameModel.column_name_2.like("integration_test%")).delete(
-        synchronize_session=False
-    )
-    session_fixture.commit()
