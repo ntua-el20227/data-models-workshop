@@ -1,0 +1,32 @@
+.
+├── __init__.py
+├── __pycache__
+│   └── __init__.cpython-310.pyc
+├── backend
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   └── config.cpython-310.pyc
+│   ├── config.py
+│   ├── session.py
+│   ├── setup_pg_database.py
+│   └── sql_scripts
+│       └── setup_pg_db.sql
+├── main.py
+├── models
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-310.pyc
+│   │   └── table_name.cpython-310.pyc
+│   └── table_name.py
+├── schemas
+│   ├── __init__.py
+│   └── table_name.py
+└── services
+    ├── __init__.py
+    ├── __pycache__
+    │   ├── __init__.cpython-310.pyc
+    │   └── base.cpython-310.pyc
+    ├── base.py
+    └── table_name.py
+
+10 directories, 20 files

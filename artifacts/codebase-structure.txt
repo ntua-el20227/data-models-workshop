@@ -1,0 +1,16 @@
+.
+├── Dockerfile
+├── LICENSE.txt
+├── Makefile
+├── README.md
+├── app
+├── data
+├── docker-compose-test.yaml
+├── docker-compose.yaml
+├── pyproject.toml
+├── pytest.ini
+├── requirements.txt
+├── setup.cfg
+└── tests
+
+4 directories, 10 files
