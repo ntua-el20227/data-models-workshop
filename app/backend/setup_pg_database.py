@@ -5,12 +5,23 @@ from sqlalchemy import create_engine
 logging.basicConfig(level=logging.INFO)
 engine = create_engine(url=config.database.dsn)
 
-sql_script_path = "app/backend/sql_scripts/setup_pg_db.sql"
+def execute_sql_script(sql_script_path: str):
+    try:
+        with open(sql_script_path) as f:
+            query = "".join(f.readlines())
+            engine.execute(query)
+        logging.info(f"Executed script {sql_script_path} successfully")
+    except Exception as e:
+        logging.error(f"Error executing script {sql_script_path}: {str(e)}")
 
-with open(f"{sql_script_path}") as f:
-    setup_database_query: str = "".join(f.readlines())
-    engine.execute(setup_database_query)
+# Execute the first script
+sql_script_path1 = "app/backend/sql_scripts/setup_pg_db.sql"
+execute_sql_script(sql_script_path1)
+
+# Execute the second script
+sql_script_path2 = "app/backend/sql_scripts/init_ecommerce_tables.sql"
+execute_sql_script(sql_script_path2)
 
 print("--------------------")
-logging.info("PG database created successfully")
+logging.info("All scripts executed successfully")
 print("--------------------")
