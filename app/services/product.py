@@ -1,4 +1,3 @@
-# app/services/product.py
 from sqlalchemy import select
 
 from app.models.product import Product
