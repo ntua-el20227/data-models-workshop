@@ -1,6 +1,8 @@
+import logging
+
 from app.backend.session import create_session
 from app.services.product import ProductService
-import logging
+
 
 def run():
     with create_session() as session:

@@ -17,4 +17,3 @@ class ProductDataManager(BaseDataManager):
         stmt = select(Product).where(Product.product_id == product_id)
         model = self.get_one(stmt)
         return ProductSchema.from_orm(model)
-

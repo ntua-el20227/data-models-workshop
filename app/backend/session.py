@@ -1,7 +1,9 @@
-from typing import Iterator
 from contextlib import contextmanager
+from typing import Iterator
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session, sessionmaker
+
 from app.backend.config import config
 
 # create session factory to generate new database sessions
@@ -11,6 +13,7 @@ SessionFactory = sessionmaker(
     autoflush=False,
     expire_on_commit=False,
 )
+
 
 @contextmanager
 def create_session() -> Iterator[Session]:
