@@ -8,6 +8,8 @@ engine = create_engine(url=config.database.dsn)
 
 
 def execute_sql_script(sql_script_path: str):
+    """Execute SQL script."""
+    
     try:
         with open(sql_script_path) as f:
             query = "".join(f.readlines())

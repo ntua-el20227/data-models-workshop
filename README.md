@@ -144,36 +144,22 @@ The CI pipeline is configured in the [GitHub actions](.github/workflows/ci.yml) 
 
 
 ## Code Structure
+
 ```
 .
-    └── app/
-        ├── backend/            # Backend functionality and configs
-        |   ├── config.py           # Configuration settings
-        │   └── session.py          # Database session manager
-        ├── models/             # SQLAlchemy models
-        │   ├── auth.py             # Authentication models
-        |   ├── base.py             # Base classes, mixins
-        |   └── ...                 # Other service models
-        ├── schemas/            # Pydantic models
-        |   ├── auth.py              
-        │   └── ...
-        ├── services/           # Business logic
-        |   ├── auth.py             # Generate and verify tokens
-        |   ├── base.py             # Base classes, mixins
-        │   └── ...
-        └── main.py             # Application runner
-    └── tests/                  # Unit and integration tests
-    ├── .gitignore              # File for ignoring files in git
-    ├── .python-version         # File for pinning python version
-    ├── docker-compose.yaml     # Docker compose file for integration testing
-    ├── Dockerfile              # Dockerfile for building the image
-    ├── pre-commit-config.yaml  # Pre-commit hooks
-    ├── pyproject.toml          # File for setting up pre-commit hooks
-    ├── setup.cfg               # Configuration for pytest
-    ├── Makefile                # Makefile for running commands
-    ├── README.md               # This file
-    └── requirements.txt        # Python dependencies
-    
-    
-        
+├── Dockerfile                   # Docker configuration for building a containerized application
+├── LICENSE.txt                  # The license under which the software is released
+├── Makefile                     # Contains commands to automate common development tasks
+├── README.md                    # Repository documentation with introduction, usage, etc.
+├── app                          # Main application code
+├── app                          # Main application code
+├── artifacts                    # Supplementary files that support the application, including docs and test queries
+├── data                         # Directory for data-related files (potentially seed data, migrations, etc.)
+├── docker-compose-test.yaml     # Docker Compose configuration specifically for testing environment
+├── docker-compose.yaml          # Docker Compose configuration for local development and deployment
+├── pyproject.toml               # Configuration and metadata for Python projects, often used with poetry
+├── pytest.ini                   # Configuration file for pytest (testing framework)
+├── requirements.txt             # List of Python dependencies
+├── setup.cfg                    # General configuration file for Python tools and setup
+└── tests                        # Test suite for the application     
 ```

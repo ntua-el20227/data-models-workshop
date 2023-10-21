@@ -4,6 +4,8 @@
 ├── Makefile                     # Contains commands to automate common development tasks
 ├── README.md                    # Repository documentation with introduction, usage, etc.
 ├── app                          # Main application code
+├── app                          # Main application code
+├── artifacts                    # Supplementary files that support the application, including docs and test queries
 ├── data                         # Directory for data-related files (potentially seed data, migrations, etc.)
 ├── docker-compose-test.yaml     # Docker Compose configuration specifically for testing environment
 ├── docker-compose.yaml          # Docker Compose configuration for local development and deployment
@@ -13,4 +15,4 @@
 ├── setup.cfg                    # General configuration file for Python tools and setup
 └── tests                        # Test suite for the application
 
-4 directories, 10 files
+5 directories, 11 files
