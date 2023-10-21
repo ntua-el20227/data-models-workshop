@@ -23,20 +23,21 @@ def test_add_one():
 
 def test_add_all():
     """
-    Test add_one method.
+    Test add_all method.
     """
     # Create a mock for the session
     session = Mock()
     data_manager = BaseDataManager(session=session)
 
-    # Create a mock model instance
-    model = Mock()
+    # Create mock model instances
+    model1 = Mock()
+    model2 = Mock()
 
-    # Call the add_one method
-    data_manager.add_all(model)
+    # Call the add_all method with a list of mock models
+    data_manager.add_all([model1, model2])
 
-    # Assert that the add method of the session was called with the model
-    session.add_all.assert_called_once_with(model)
+    # Assert that the add_all method of the session was called with the list of models
+    session.add_all.assert_called_once_with([model1, model2])
 
 
 def test_get_one():
