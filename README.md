@@ -9,6 +9,7 @@
 3. [CI/CD](#cicd)
     1. [CI](#ci)
 4. [Code Structure](#code-structure)
+5. [Git Development](#git-development)
 
 
 ## Setup
@@ -163,3 +164,195 @@ The CI pipeline is configured in the [GitHub actions](.github/workflows/ci.yml) 
 ├── setup.cfg                    # General configuration file for Python tools and setup
 └── tests                        # Test suite for the application     
 ```
+
+## Git Development
+Absolutely, I can enrich the README by adding a section for common Git commands that are useful during development. Here's how you might structure it:
+
+---
+
+## Development with Git
+
+To ensure smooth development and collaboration, it's essential to familiarize yourself with Git operations. Below are some of the most commonly used Git commands in this workflow:
+
+### 1. Clone the Repository
+
+To get started with the project, you first need to clone it to your local machine:
+
+```bash
+git clone https://github.com/<your-username>/<repository-name>.git
+```
+
+### 2. Navigate to the Project Directory
+
+Once cloned, navigate to the project directory:
+
+```bash
+cd <repository-name>
+```
+
+### 3. Create a New Branch
+
+Before starting your work, create a new branch. This ensures that the main branch remains clean and deployable at all times:
+
+```bash
+git checkout -b feature/<feature-name>   # for features
+git checkout -b bugfix/<bug-name>       # for bug fixes
+```
+
+### 4. Check Branch Status
+
+You can always check which branch you're currently on and see if there are changes to commit:
+
+```bash
+git status
+```
+
+### 5. Add and Commit Changes
+
+After making your changes, stage them for a commit:
+
+```bash
+git add .  # stages all changes in the current directory
+```
+
+Then, commit your changes with a descriptive message:
+
+```bash
+git commit -m "A meaningful description of what was done"
+```
+
+### 6. Push Changes to a Remote Repository
+
+Once you've committed your changes, push them to the remote repository:
+
+```bash
+git push -u origin <branch-name>
+```
+
+### 7. Switching Between Branches
+
+To switch from one branch to another:
+
+```bash
+git checkout <branch-name>
+```
+
+### 8. Update Your Local Repository
+
+Regularly pull from the main branch to get the latest changes:
+
+```bash
+git checkout main
+git pull
+```
+
+### 9. Merging Changes from Main into Your Branch
+
+If you need to merge changes from the main branch into your current branch:
+
+```bash
+git merge main
+```
+
+### 10. Deleting a Branch
+If you need to delete a branch after merging it into main:
+
+```bash
+git branch -d <branch-name>
+```
+
+Absolutely! There are other useful Git commands to help developers get more insights into the history, branches, and more. Here's a continuation of the Git commands for development:
+
+---
+
+### 11. Viewing Commit History
+
+To see a log of all commits:
+
+```bash
+git log
+```
+
+For a more concise view with a graphical representation of the commit tree:
+
+```bash
+git log --oneline --graph --all
+```
+
+### 112. Viewing All Branches
+
+To list all local branches:
+
+```bash
+git branch
+```
+
+To list all remote branches:
+
+```bash
+git branch -r
+```
+
+To list both local and remote branches:
+
+```bash
+git branch -a
+```
+
+### 13. Fetching Changes
+
+Fetch changes from the remote repository without merging them:
+
+```bash
+git fetch
+```
+
+This is useful to see changes that are on the remote repository but not in your local repository yet.
+
+### 14. Reverting Changes
+
+To undo the changes from the last commit:
+
+```bash
+git reset --hard HEAD~1
+```
+
+### 15. Stashing Changes
+
+If you're not ready to commit changes but need a clean working directory (e.g., to switch to another branch):
+
+```bash
+git stash
+```
+
+To apply the stashed changes back into your working directory:
+
+```bash
+git stash pop
+```
+
+### 16. Set Upstream for Your Branch
+
+If it's your first time pushing a branch to the remote repository, you might need to set the upstream:
+
+```bash
+git push --set-upstream origin <branch-name>
+```
+
+### 17. Comparing Changes
+
+To see the differences between your working directory and the last commit:
+
+```bash
+git diff
+```
+
+To see the differences between your staged changes and the last commit:
+
+```bash
+git diff --staged
+```
+
+---
+
+For more information, check out the [Git documentation](https://git-scm.com/doc).
