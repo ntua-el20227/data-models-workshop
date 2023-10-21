@@ -51,12 +51,6 @@
 
   > Please do not use pip by hand as the makefile contains the explicit activation of pre-commit hooks which will be necessary.
 
-- Install development dependencies:
-
-```bash
-  make install-dev
-```
-
 - Run tests to ensure everything is set up correctly:
 
 ```bash
@@ -127,7 +121,7 @@ The test is trying to add an object in DB and retrieve it. These test roles are 
 To run both unit and integration together run:
 
 ```bash
-  make test
+  make tests
 ```
 
 
@@ -168,9 +162,8 @@ The CI pipeline is configured in the [GitHub actions](.github/workflows/ci.yml) 
 ├── Makefile                     # Contains commands to automate common development tasks
 ├── README.md                    # Repository documentation with introduction, usage, etc.
 ├── app                          # Main application code
-├── app                          # Main application code
 ├── artifacts                    # Supplementary files that support the application, including docs and test queries
-├── data                         # Directory for data-related files (potentially seed data, migrations, etc.)
+├── data                         # Directory for data-related files
 ├── docker-compose-test.yaml     # Docker Compose configuration specifically for testing environment
 ├── docker-compose.yaml          # Docker Compose configuration for local development and deployment
 ├── pyproject.toml               # Configuration and metadata for Python projects, often used with poetry
