@@ -14,6 +14,7 @@ class ProductService(BaseService):
 
 class ProductDataManager(BaseDataManager):
     def get_product(self, product_id: int) -> ProductSchema:
+        """Get product by ID."""""
         stmt = select(Product).where(Product.product_id == product_id)
         model = self.get_one(stmt)
         return ProductSchema.from_orm(model)

@@ -7,4 +7,6 @@ from app.demos import product
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     logging.info("Starting application")
+    
+    logging.info("Starting product demo")
     product.run()
