@@ -173,7 +173,7 @@ The CI pipeline is configured in the [GitHub actions](.github/workflows/ci.yml) 
 └── tests                        # Test suite for the application     
 ```
 
-## Development with Git
+## Git Development
 
 To ensure smooth development and collaboration, it's essential to familiarize yourself with Git operations. Below are some of the most commonly used Git commands in this workflow:
 
@@ -278,7 +278,7 @@ For a more concise view with a graphical representation of the commit tree:
 git log --oneline --graph --all
 ```
 
-### 112. Viewing All Branches
+### 12. Viewing All Branches
 
 To list all local branches:
 
