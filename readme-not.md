@@ -180,11 +180,6 @@ The CI pipeline is configured in the [GitHub actions](.github/workflows/ci.yml) 
 └── tests                        # Test suite for the application     
 ```
 
-## Git Development
-Absolutely, I can enrich the README by adding a section for common Git commands that are useful during development. Here's how you might structure it:
-
----
-
 ## Development with Git
 
 To ensure smooth development and collaboration, it's essential to familiarize yourself with Git operations. Below are some of the most commonly used Git commands in this workflow:
