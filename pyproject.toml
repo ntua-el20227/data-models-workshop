@@ -1,3 +1,6 @@
+# Configuration for various Python tools including `black`, `coverage`, and `mypy`.
+# This file centralizes configurations that don't use traditional INI-style config files.
+
 # `black` does not work with setup.cfg
 # as seen here: https://blog.pilosus.org/posts/2019/12/26/python-third-party-tools-configuration/
 
