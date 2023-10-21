@@ -1,3 +1,6 @@
+# Configuration for pre-commit hooks to enforce code quality checks.
+# This includes linting, formatting, and type-checking.
+
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 

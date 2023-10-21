@@ -1,3 +1,6 @@
+# Docker Compose configuration for setting up a test PostgreSQL instance.
+# Uses a SQL script to initialize the test database schema.
+
 version: '3.8'
 
 services:
