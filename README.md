@@ -37,22 +37,37 @@
     python -m venv .venv
     source .venv/bin/activate
   ```
-  This virtualenv now has the version of Python which was set by pyenv and the .project-version file.
-  
+  > This virtualenv now has the version of Python which was set by pyenv and the .project-version file.
+  >
   > Note: the rest of these instructions assume you've activated the virtualenv as does the Makefile. You may want to use a virtualenv tool like
   > [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/) or
   > [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv).
   
 - Install dependencies via:
-  ```bash
-    make install-dev
-  ```
-- Please do not use pip by hand as the makefile contains the explicit activation of pre-commit hooks which will be necessary.
 
-- Then run docker-compose up to start the deployment so that you can run the tests .
- ```bash
-    make build-image
-  ```
+```bash
+  make install-dev
+```
+
+  > Please do not use pip by hand as the makefile contains the explicit activation of pre-commit hooks which will be necessary.
+
+- Install development dependencies:
+
+```bash
+  make install-dev
+```
+
+- Run tests to ensure everything is set up correctly:
+
+```bash
+  make tests
+```
+
+- Create a development version:
+
+``` bash
+  make create-dev
+```
 
 ### Setup operational event database
 
@@ -260,10 +275,6 @@ If you need to delete a branch after merging it into main:
 ```bash
 git branch -d <branch-name>
 ```
-
-Absolutely! There are other useful Git commands to help developers get more insights into the history, branches, and more. Here's a continuation of the Git commands for development:
-
----
 
 ### 11. Viewing Commit History
 
